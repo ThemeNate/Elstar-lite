@@ -1,0 +1,42 @@
+.drawer-content {
+    @apply bg-white dark:bg-gray-800 shadow-xl absolute flex flex-col;
+
+    &.vertical {
+        @apply h-full;
+    }
+
+    &.horizontal {
+        @apply w-full;
+    }
+}
+
+.drawer-header {
+    @apply flex items-center justify-between py-4 px-6 border-b border-gray-200 dark:border-gray-700;
+}
+
+.drawer-body {
+    @apply p-6 h-full overflow-y-auto;
+}
+
+.drawer-footer {
+    @apply flex items-center justify-between py-4 px-6 border-t border-gray-200 dark:border-gray-700;
+}
+
+.drawer-open {
+    &.drawer-lock-scroll {
+        @apply overflow-hidden;
+    }
+}
+
+.drawer-overlay {
+    transition: all 0.3s ease-in-out;
+    @apply bg-black bg-opacity-80 inset-0 fixed z-30;
+}
+
+.drawer-overlay-after-open {
+    opacity: 1;
+}
+
+.drawer-overlay-before-close {
+    opacity: 0;
+}
