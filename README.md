@@ -25,3 +25,5 @@ To build the app for production run `npm run build` or `yarn build`
 
 ## Documentation
 [documentation](https://elstar.themenate.net/docs/documentation/introduction)
+
+### Get [full version](https://themeforest.net/item/elstar-react-tailwind-admin-template/39768117) to unclock all components & features
