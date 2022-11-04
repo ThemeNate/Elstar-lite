@@ -1,0 +1,84 @@
+
+.menu-item {
+    @apply cursor-pointer font-semibold px-3 rounded-md flex items-center w-full whitespace-nowrap gap-x-2;
+
+    &.menu-item-light {
+        @apply text-gray-600;
+
+        &.menu-item-hoverable {
+            @apply hover:text-gray-900 hover:bg-gray-100;
+        }
+
+        &.menu-item-active {
+            @apply text-gray-900 bg-gray-200 hover:bg-gray-200;
+        }
+    }
+
+    &.menu-item-dark {
+        @apply text-gray-400 dark:text-gray-400;
+
+        &.menu-item-hoverable {
+            @apply hover:text-gray-100 hover:bg-gray-700;
+        }
+
+        &.menu-item-active {
+            @apply text-gray-100 bg-gray-600 hover:bg-gray-600;
+        }
+    }
+
+    &.menu-item-themed {
+        @apply text-gray-100 text-opacity-80;
+
+        &.menu-item-hoverable {
+            @apply hover:text-opacity-100 hover:bg-gray-900 hover:bg-opacity-10;
+        }
+
+        &.menu-item-active {
+            @apply text-gray-100 bg-gray-900 bg-opacity-30 hover:bg-opacity-30;
+        }
+    }
+
+    &.menu-item-transparent {
+        @apply text-gray-600 dark:text-gray-400;
+
+        &.menu-item-hoverable {
+            @apply hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-900/[.1] dark:hover:bg-white/[.1];
+        }
+
+        &.menu-item-active {
+            @apply text-gray-900 dark:text-gray-100 bg-gray-900/[.075] dark:bg-white/[.1];
+        }
+    }
+}
+
+.menu-collapse-item {
+    @apply cursor-pointer select-none font-semibold px-3 h-10 rounded-md flex items-center justify-between;
+
+    &.menu-collapse-item-light {
+        @apply text-gray-600 hover:text-gray-900 hover:bg-gray-100;
+    }
+
+    &.menu-collapse-item-dark {
+        @apply text-gray-400 dark:text-gray-400 hover:text-gray-100 dark:hover:text-gray-100 hover:bg-gray-700;
+    }
+
+    &.menu-collapse-item-themed {
+        @apply text-gray-100 text-opacity-80 hover:text-opacity-100 hover:bg-gray-900 hover:bg-opacity-10;;
+    }
+
+    &.menu-collapse-item-transparent {
+        @apply text-gray-600 hover:text-gray-900 hover:bg-gray-900/[.1] dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-white/[.1];
+    }
+}
+
+.menu-item-divider {
+    @apply border-b border-gray-200 dark:border-gray-600 my-2;
+}
+
+.menu-item-disabled {
+    @apply cursor-not-allowed opacity-60; 
+}
+
+.menu-item-link {
+    @apply flex w-full h-full items-center;
+}

@@ -1,0 +1,39 @@
+.form-item {
+    @apply mb-7 relative;
+
+    &.horizontal {
+        @apply flex flex-auto;
+
+        .form-label {
+            @apply justify-end;
+        }
+    }
+    
+    &.vertical {
+        @apply flex flex-col;
+    }
+
+
+    &.inline {
+        @apply md:inline-flex mr-3 rtl:ml-3;
+    }
+
+}
+
+.form-label {
+    @apply flex items-center font-semibold;
+
+    &.invalid {
+        @apply text-red-500;
+    }
+}
+
+.form-explain {
+    @apply text-red-500 absolute;
+}
+
+.form-container {
+    &.inline {
+        @apply md:flex items-center;
+    }
+}

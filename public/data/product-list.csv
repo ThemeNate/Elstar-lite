@@ -1,0 +1,13 @@
+id,name,category,price,stock,status
+12,Blue Jacket,cloths,77,46,0
+13,White Backpack,bags,139,28,0
+14,Black Sneaker,shoes,99,52,0
+15,Gray Hoodies,cloths,68,92,0
+16,Blue Backpack,bags,70,0,2
+17,White Sneaker,shoes,29,18,0
+18,Strip Analog Watch,watches,389,7,1
+19,Beats Solo Headphone,Devices,86,0,2
+20,Apple Macbook Pro,Devices,1599,27,0
+21,Bronze Analog Watch,watches,729,6,0
+22,Apple Watch,Devices,388,51,0
+23,Antique Analog Watch,watches,599,30,0

@@ -1,0 +1,7 @@
+.close-btn {
+    @apply outline-none;
+}
+
+.close-btn-default {
+    @apply text-xl rounded p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300;
+}
