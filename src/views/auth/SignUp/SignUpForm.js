@@ -1,15 +1,10 @@
 import React from 'react'
 import { Input, Button, FormItem, FormContainer, Alert } from 'components/ui'
 import { PasswordInput, ActionLink } from 'components/shared'
-import { onSignInSuccess } from 'store/auth/sessionSlice'
-import { setUser } from 'store/auth/userSlice'
-import { apiSignUp } from 'services/AuthService'
-import appConfig from 'configs/app.config'
 import useTimeOutMessage from 'utils/hooks/useTimeOutMessage'
-import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
 import { Field, Form, Formik } from 'formik'
 import * as Yup from 'yup'
+import useAuth from 'utils/hooks/useAuth'
 
 const validationSchema = Yup.object().shape({
 	userName: Yup.string().required('Please enter your user name'),
@@ -22,35 +17,20 @@ const SignUpForm = props => {
 
 	const { disableSubmit = false, className, signInUrl = '/sign-in' } = props
 
-	const dispatch = useDispatch()
-
-	const navigate = useNavigate()
+	const { signUp } = useAuth()
 
 	const [message, setMessage] = useTimeOutMessage()
 
 	const onSignUp = async (values, setSubmitting) => {
 		const { userName, password, email } = values
 		setSubmitting(true)
-		try {
-			const resp = await apiSignUp({ userName, password, email })
-			if (resp.data) {
-				setSubmitting(false)
-				const { token } = resp.data
-				dispatch(onSignInSuccess(token))
-				if(resp.data.user) {
-					dispatch(setUser(resp.data.user || { 
-						avatar: '', 
-						userName: 'Anonymous', 
-						authority: ['USER'], 
-						email: ''
-					}))
-				}
-				navigate(appConfig.tourPath)
-			}
-		} catch (errors) {
-			setMessage(errors?.response?.data?.message || errors.toString())
-			setSubmitting(false)
+		const result = await signUp({ userName, password, email })
+
+		if (result.status === 'failed') {
+			setMessage(result.message)
 		}
+
+		setSubmitting(false)
 	}
 
 	return (
