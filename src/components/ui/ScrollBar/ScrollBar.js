@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react'
-import { Scrollbars } from 'react-custom-scrollbars'
+import { Scrollbars } from 'react-custom-scrollbars-2'
 
 const ScrollBar = forwardRef((props, ref) => {
 
