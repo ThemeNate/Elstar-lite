@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { Menu } from 'components/ui'
 import VerticalSingleMenuItem from './VerticalSingleMenuItem'
 import VerticalCollapsedMenuItem from './VerticalCollapsedMenuItem'
 import { themeConfig } from 'configs/theme.config'
-import { NAV_ITEM_TYPE_TITLE, NAV_ITEM_TYPE_COLLAPSE, NAV_ITEM_TYPE_ITEM } from 'constants/navigation.constant'
+import { 
+	NAV_ITEM_TYPE_TITLE, 
+	NAV_ITEM_TYPE_COLLAPSE, 
+	NAV_ITEM_TYPE_ITEM,
+} from 'constants/navigation.constant'
 import useMenuActive from 'utils/hooks/useMenuActive'
 import { useTranslation } from 'react-i18next'
 
@@ -12,12 +17,13 @@ const { MenuGroup } = Menu
 const VerticalMenuContent = props => {
 
 	const { 
-		navMode, 
+		navMode = themeConfig.navMode, 
 		collapsed, 
 		routeKey, 
-		navigationTree=[],
-		userAuthority=[],
-		onMenuItemClick
+		navigationTree = [],
+		userAuthority = [],
+		onMenuItemClick,
+		direction = themeConfig.direction
 	} = props
 
 	const { t } = useTranslation()
@@ -47,6 +53,7 @@ const VerticalMenuContent = props => {
 					onLinkClick={handleLinkClick} 
 					sideCollapsed={collapsed}
 					userAuthority={userAuthority}
+					direction={direction}
 				/>
 			)
 		}
@@ -59,6 +66,7 @@ const VerticalMenuContent = props => {
 					onLinkClick={onMenuItemClick} 
 					sideCollapsed={collapsed}
 					userAuthority={userAuthority}
+					direction={direction}
 				/>
 			)
 		}
@@ -78,6 +86,7 @@ const VerticalMenuContent = props => {
 									onLinkClick={onMenuItemClick} 
 									sideCollapsed={collapsed}
 									userAuthority={userAuthority}
+									direction={direction}
 								/>
 								:
 								<VerticalSingleMenuItem 
@@ -86,6 +95,7 @@ const VerticalMenuContent = props => {
 									onLinkClick={onMenuItemClick} 
 									sideCollapsed={collapsed}
 									userAuthority={userAuthority}
+									direction={direction}
 								/>
 							))
 						}
@@ -110,8 +120,13 @@ const VerticalMenuContent = props => {
 	)
 }
 
-VerticalMenuContent.defaultProps ={
-	navMode: themeConfig.navMode
+VerticalMenuContent.propTypes = {
+	navMode: PropTypes.oneOf(['light', 'dark', 'themed', 'transparent']),
+	collapsed: PropTypes.bool,
+	routeKey: PropTypes.string,
+	navigationTree: PropTypes.array,
+	userAuthority: PropTypes.array,
+	direction: PropTypes.oneOf(['rtl', 'ltr']),
 }
 
 export default VerticalMenuContent

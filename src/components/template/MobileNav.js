@@ -76,6 +76,7 @@ const MobileNav = () => {
 									routeKey={currentRouteKey}
 									userAuthority={userAuthority}
 									onMenuItemClick={onDrawerClose}
+									direction={direction}
 								/>
 							)}
 						</Suspense>
