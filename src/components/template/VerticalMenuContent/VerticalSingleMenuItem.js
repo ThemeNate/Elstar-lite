@@ -7,11 +7,14 @@ import { AuthorityCheck } from 'components/shared'
 
 const { MenuItem } = Menu
 
-const CollapsedItem = ({title, translateKey, children}) => {
+const CollapsedItem = ({title, translateKey, children, direction}) => {
 	const { t } = useTranslation()
 
 	return (
-		<Tooltip title={t(translateKey) || title} placement="right">
+		<Tooltip 
+			title={t(translateKey) || title} 
+			placement={direction === 'rtl' ? 'left' : 'right'}
+		>
 			{children}
 		</Tooltip>
 	)
@@ -45,13 +48,17 @@ const DefaultItem = (props) => {
 	)
 }
 
-const VerticalSingleMenuItem = ({nav, onLinkClick, sideCollapsed, userAuthority}) => {
+const VerticalSingleMenuItem = ({nav, onLinkClick, sideCollapsed, userAuthority, direction}) => {
 
 	return (
 		<AuthorityCheck userAuthority={userAuthority} authority={nav.authority}>
 			{
 				sideCollapsed ? (
-					<CollapsedItem title={nav.title} translateKey={nav.translateKey}>
+					<CollapsedItem 
+						title={nav.title} 
+						translateKey={nav.translateKey}
+						direction={direction}
+					>
 						<DefaultItem 
 							nav={nav} 
 							sideCollapsed={sideCollapsed} 

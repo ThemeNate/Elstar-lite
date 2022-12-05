@@ -66,7 +66,7 @@ const DefaultItem = ({nav, onLinkClick, userAuthority}) => {
 	)
 }
 
-const CollapsedItem = ({nav, onLinkClick, userAuthority}) => {
+const CollapsedItem = ({nav, onLinkClick, userAuthority, direction}) => {
 
 	const menuItem = (
 		<MenuItem key={nav.key} eventKey={nav.key} className="mb-2">
@@ -79,7 +79,11 @@ const CollapsedItem = ({nav, onLinkClick, userAuthority}) => {
 			userAuthority={userAuthority} 
 			authority={nav.authority}
 		>
-			<Dropdown trigger="hover" renderTitle={menuItem} placement="middle-start-top">
+			<Dropdown 
+				trigger="hover" 
+				renderTitle={menuItem} 
+				placement={direction === 'rtl' ? 'middle-end-top' : 'middle-start-top'}
+			>
 				{
 					nav.subMenu.map(subNav => (
 						<AuthorityCheck 

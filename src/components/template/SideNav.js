@@ -66,6 +66,7 @@ const SideNav = () => {
 			navigationTree={navigationConfig}
 			routeKey={currentRouteKey}
 			userAuthority={userAuthority}
+			direction={direction}
 		/>
 	)
 
@@ -91,11 +92,11 @@ const SideNav = () => {
 					</div>
 					{
 						sideNavCollapse ?
-						<>{menuContent}</>
+						menuContent
 						:
 						<div className="side-nav-content">
 							<ScrollBar autoHide direction={direction}>
-							<>{menuContent}</>
+								{menuContent}
 							</ScrollBar>
 						</div>
 					}
