@@ -17,7 +17,7 @@ Full version: [demo](https://elstar.themenate.net/) | [download](https://themefo
 To get started follow this steps:
 
 - Install packages: `npm install`.
-- Start the project locally: `npm run start` (running on port 3000).
+- Start the project locally: `npm run start` (running on port 5173).
 
 ## Building Project
 
