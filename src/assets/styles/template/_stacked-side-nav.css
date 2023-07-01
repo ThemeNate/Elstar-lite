@@ -1,0 +1,32 @@
+.stacked-side-nav {
+  @apply flex flex-auto sticky top-0 h-screen flex-shrink-0 z-20 transition-all ease-in-out duration-200 overflow-y-hidden;
+}
+
+.stacked-side-nav-content {
+  height: calc(100vh - theme("spacing.16"));
+  @apply overflow-y-auto;
+}
+
+.stacked-side-nav-mini {
+  @apply z-10;
+}
+
+.stacked-side-nav-secondary {
+  @apply transition-all ease-in-out duration-200;
+}
+
+.stacked-side-nav-mini-light {
+  @apply bg-white border-r border-gray-200;
+}
+
+.stacked-side-nav-mini-dark {
+  @apply bg-gray-800 border-r border-gray-700;
+}
+
+.stacked-side-nav-secondary-light {
+  @apply bg-white border-r border-gray-200;
+}
+
+.stacked-side-nav-secondary-dark {
+  @apply bg-gray-800 border-r border-gray-700;
+}
